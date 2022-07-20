@@ -1,0 +1,24 @@
+.navbarContainer {
+  @apply h-screen w-60 bg-[#091336] hidden 2xl:block overflow-auto;
+
+  .logoWrapper {
+    @apply mt-5 mb-8 ml-3 inline-block;
+  }
+
+  .navItem {
+    @apply opacity-60 h-[52px] border-l-[3px] border-transparent flex items-center pl-3 transition-colors text-white duration-200 relative;
+
+    &:hover {
+      @apply opacity-90;
+    }
+
+    &.activeItem {
+      @apply opacity-100 border-[#005FF8] bg-[#d8e4fb]/30;
+
+      &:after {
+        content: '';
+        @apply w-2 h-2 absolute rounded-[50%] bg-[#FFD500] right-3 shadow-[0_3px_8px_#edda01];
+      }
+    }
+  }
+}
