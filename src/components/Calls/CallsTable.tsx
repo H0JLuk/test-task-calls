@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { TCall } from '../../types/Call';
 import CallsItem from './CallsItem';
@@ -12,6 +12,8 @@ type CallsTableProps = {
 };
 
 function CallsTable({ data, loading, isError }: CallsTableProps) {
+  const [playingCallId, setPlayingCallId] = useState<number | null>(null);
+
   return (
     <div className='container'>
       <div className=''>
@@ -31,7 +33,7 @@ function CallsTable({ data, loading, isError }: CallsTableProps) {
               </thead>
               <tbody>
                 {data.map((callItem) => (
-                  <CallsItem callItem={callItem} key={callItem.id} />
+                  <CallsItem callItem={callItem} key={callItem.id} canPlaying={playingCallId === callItem.id} setPlayingCallId={setPlayingCallId} />
                 ))}
               </tbody>
             </table>
