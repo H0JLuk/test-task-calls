@@ -50,3 +50,13 @@ export type TCall = {
   person_surname: string;
   person_avatar: string;
 };
+
+export type TFilters = {
+  callSign: TCallSign,
+};
+
+export enum TCallSign {
+  INCOMMING = 'INCOMMING',
+  OUTGOING = 'OUTGOING',
+  ALL = 'ALL',
+}

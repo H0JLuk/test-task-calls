@@ -2,12 +2,12 @@
   font-family: 'SFPro';
   src: url('SFPro-Regular.otf') format('opentype');
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: 'SFPro';
   src: url('SFPro-Medium.otf') format('opentype');
   font-style: normal;
-  font-weight: medium;
+  font-weight: 500;
 }

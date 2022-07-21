@@ -2,7 +2,7 @@
   @apply bg-gray-100 overflow-hidden flex items-start justify-between;
 
   .contentInner {
-    @apply w-full overflow-auto;
+    @apply w-full overflow-auto h-screen;
 
     .callsInner {
       @apply flex flex-col items-center mx-40;
