@@ -1,0 +1,39 @@
+.selectWrapper {
+  @apply relative;
+
+  .labelButton {
+    @apply relative w-full flex justify-center;
+
+    &.opened > .labelText {
+      @apply text-[#122945];
+    }
+
+    > .labelText {
+      @apply text-[14px] text-[#5E7793] transition mr-1;
+    }
+
+    &.opened .arrowIcon {
+      @apply fill-[#005FF8] -rotate-180;
+    }
+
+    .arrowIcon {
+      @apply fill-[#ADBFDF] transition;
+    }
+  }
+
+  .optionList {
+    @apply absolute right-0 z-10 mt-2 w-[204px] bg-white border border-[#EAF0FA] rounded-[4px] shadow-[0_0_26_[#e9edf3]] overflow-auto;
+
+    .optionValue {
+      @apply text-[14px] text-[#899CB1] cursor-pointer relative px-5 py-1.5 transition;
+
+      &:hover {
+        @apply bg-[#005FF8] bg-opacity-[13%] text-[#122945];
+      }
+
+      &.selected {
+        @apply text-[#005FF8] opacity-[87%];
+      }
+    }
+  }
+}
