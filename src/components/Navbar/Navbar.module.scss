@@ -1,5 +1,5 @@
 .navbarContainer {
-  @apply h-screen w-60 bg-[#091336] hidden 2xl:block overflow-auto;
+  @apply h-screen w-[240px] min-w-[240px] bg-[#091336] hidden 2xl:block h-screen overflow-auto;
 
   .logoWrapper {
     @apply mt-5 mb-8 ml-3 inline-block;
@@ -8,8 +8,12 @@
   .navItem {
     @apply opacity-60 h-[52px] border-l-[3px] border-transparent flex items-center pl-3 transition-colors text-white duration-200 relative;
 
+    .navItemText {
+      @apply pl-3 font-[500];
+    }
+
     &:hover {
-      @apply opacity-90;
+      @apply opacity-90 bg-slate-700;
     }
 
     &.activeItem {
