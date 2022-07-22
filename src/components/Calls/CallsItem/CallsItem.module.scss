@@ -1,0 +1,20 @@
+.callsWrapper {
+  @apply border-t border-gray-200 h-[65px] text-[#122945];
+
+  .playerLabel {
+    @apply text-right;
+  }
+
+  &:hover .playerLabel,
+  &.playing .playerLabel {
+    @apply hidden;
+  }
+
+  &:not(.playing) .player {
+    @apply hidden;
+  }
+
+  &:hover .player {
+    @apply block;
+  }
+}

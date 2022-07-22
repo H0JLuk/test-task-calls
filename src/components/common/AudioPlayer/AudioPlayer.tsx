@@ -6,6 +6,8 @@ import { ReactComponent as PlayIcon } from '../../../assets/icons/play.svg';
 import { ReactComponent as PauseIcon } from '../../../assets/icons/pause.svg';
 import { calcAudioTimeFromNumber } from './audioUtils';
 
+import styles from './AudioPlayer.module.scss';
+
 const AUDIO_BAR_WIDTH = 164;
 
 type AudioPlayerProps = {
@@ -37,14 +39,16 @@ const AudioPlayer = memo(function AudioPlayer({
   const curPercentage = (curTime / duration) * 100;
 
   return (
-    <div className='flex items-center justify-between bg-[#EAF0FA] rounded-[48px] min-w-[350px] h-12 px-4'>
-      <p className='text-[15px] text-[#122945]'>{totalAudioTime} {playedTime}</p>
+    <div className={styles.playerWrapper}>
+      <p className='text-[15px] text-[#122945]'>{totalAudioTime}</p>
 
-      <div className='relative h-[4px] bg-[#ADBFDF] rounded-[2px] cursor-pointer' style={{ width: AUDIO_BAR_WIDTH }}>
+      <div className={styles.progressBar} style={{ width: AUDIO_BAR_WIDTH }}>
         <div
-          className='absolute left-0 top-0 h-full bg-[#002CFB] rounded-l-[2px]'
+          className={styles.activeProgressBar}
           style={calcProgressBarStyles(curPercentage)}
-        ></div>
+        >
+          <div className={styles.playedTime}>{playedTime}</div>
+        </div>
       </div>
 
       {isPlaying ? (

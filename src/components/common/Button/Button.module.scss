@@ -1,5 +1,5 @@
 .buttonWrapper {
   &.primary {
-    @apply flex justify-between bg-[#005FF8] px-5 py-3.5 text-white;
+    @apply flex justify-between bg-[#005FF8] px-5 py-3.5 text-white rounded-[4px];
   }
 }

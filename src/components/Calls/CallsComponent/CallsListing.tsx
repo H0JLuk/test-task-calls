@@ -1,11 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
+
 import { getCalls, GetCallsParams, inOutByCallSign } from '../../../services/Calls';
 import { TCall, TCallSign, TFilters } from '../../../types/Call';
 import CallsFilters from '../CallsFilters';
-import { TChangeFilter } from '../CallsFilters/CallsFilters'
-
+import { TChangeFilter } from '../CallsFilters/CallsFilters';
 import CallsTable from '../CallsTable';
-// import mockData from '../json.json';
 
 import styles from './CallsListing.module.scss';
 
@@ -30,7 +29,6 @@ function Calls() {
         const getCallsParams = formatFiltersToCallsServiceParams(filters);
         const { results } = await getCalls(getCallsParams);
         setCallData(results);
-        // setCallData(mockData.results as any);
       } catch (e) {
         setIsFetchingError(true);
       } finally {
@@ -43,11 +41,11 @@ function Calls() {
     setFilters((prevFilters) => ({
       ...prevFilters,
       [filterName]: value,
-    }))
+    }));
   }, []);
 
   const clearFilters = useCallback(() => {
-    setFilters(initialFilters)
+    setFilters(initialFilters);
   }, []);
 
   return (
@@ -63,7 +61,7 @@ export default Calls;
 function formatFiltersToCallsServiceParams(filters: TFilters): GetCallsParams {
   const params: GetCallsParams = {};
 
-  filters.callSign !== TCallSign.ALL && (params.inOut = inOutByCallSign[filters.callSign])
+  filters.callSign !== TCallSign.ALL && (params.inOut = inOutByCallSign[filters.callSign]);
 
   return params;
-};
+}

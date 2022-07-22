@@ -5,7 +5,7 @@
     @apply w-full overflow-auto h-screen;
 
     .callsInner {
-      @apply flex flex-col items-center mx-40;
+      @apply flex flex-col justify-center items-center 2xl:mx-40 xl:mx-10 mx-2;
     }
   }
 }

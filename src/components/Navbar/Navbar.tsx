@@ -23,8 +23,8 @@ const Navbar = memo(function Navbar() {
         </a>
       ))}
 
-      <div className='flex flex-col'>
-        <Button className='mx-5 mt-14 mb-8 font-[500]' text='Добавить заказ' icon={plusIcon} />
+      <div className='2xl:flex hidden flex-col mb-2'>
+        <Button className='mx-5 mt-14 mb-8 font-[500] flex items-center' text='Добавить заказ' icon={plusIcon} />
         <Button className='mx-5 font-[500]' text='Оплата' icon={warningIcon} />
       </div>
     </nav>

@@ -25,7 +25,6 @@ export default function useAudio(recordUrl: string | null, canPlaying: boolean) 
     if (!audioRef.current) return;
 
     const setAudioData = () => {
-      console.log('audioRef.current!.duration', audioRef.current!.duration)
       setDuration(Math.floor(audioRef.current!.duration));
       setCurTime(audioRef.current!.currentTime);
     }

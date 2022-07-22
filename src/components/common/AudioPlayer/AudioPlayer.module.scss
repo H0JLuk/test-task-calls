@@ -1,0 +1,19 @@
+.playerWrapper {
+  @apply flex items-center justify-between bg-[#EAF0FA] rounded-[48px] min-w-[350px] h-12 px-4;
+
+  .progressBar {
+    @apply relative h-[4px] bg-[#ADBFDF] rounded-[2px];
+
+    &:hover .activeProgressBar .playedTime {
+      @apply block;
+    }
+
+    .activeProgressBar {
+      @apply absolute left-0 top-0 h-full bg-[#002CFB] rounded-l-[2px] z-10;
+
+      .playedTime {
+        @apply absolute bottom-0 right-0 translate-x-[50%] text-[#122945] text-[14px] hidden;
+      }
+    }
+  }
+}

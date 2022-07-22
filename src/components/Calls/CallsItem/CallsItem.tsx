@@ -8,6 +8,9 @@ import OutGoingIcon from '../../../assets/icons/outgoing-arrow.svg';
 import { getCallRecord } from '../../../utils/helpers';
 import useAudio from '../../../hooks/useAudio';
 import AudioPlayer from '../../common/AudioPlayer';
+import { calcAudioTimeFromNumber } from '../../common/AudioPlayer/audioUtils';
+
+import styles from './CallsItem.module.scss';
 
 const ImgByCallType = {
   0: OutGoingIcon,
@@ -36,8 +39,10 @@ const CallsItem = memo(function CallsItem({ callItem, canPlaying, setPlayingCall
 
   const onPauseAudio = () => player?.setIsPlaying(false);
 
+  const isPlayingRecord = player?.isPlaying && canPlaying;
+
   return (
-    <tr className='border-t border-gray-200 h-[65px] text-[#122945]'>
+    <tr className={`${styles.callsWrapper} ${isPlayingRecord ? styles.playing : ''}`}>
       <td>
         <Image src={ImgByCallType[callItem.in_out]} />
       </td>
@@ -52,16 +57,19 @@ const CallsItem = memo(function CallsItem({ callItem, canPlaying, setPlayingCall
       <td className='text-[#5E7793] text-[15px] pr-4'>{callItem.source}</td>
       <td className='text-[#EA1A4F] text-[14px]'>Скрипт не использован</td>
       <td className='pr-10'>
-        {!isAudioLoading && !isAudioError && player && (
-          <AudioPlayer
-            isPlaying={player?.isPlaying && canPlaying}
-            onPlayAudio={onPlayAudio}
-            onPauseAudio={onPauseAudio}
-            curTime={Math.floor(player!.curTime!)}
-            duration={player!.duration!}
-            onTimeUpdate={(time: number) => player?.setClickedTime(time)}
-          />
-        )}
+        <div className={styles.playerLabel}>{!isAudioLoading && !isAudioError && player && calcAudioTimeFromNumber(player?.duration)}</div>
+        <div className={styles.player}>
+          {!isAudioLoading && !isAudioError && player && (
+            <AudioPlayer
+              isPlaying={isPlayingRecord}
+              onPlayAudio={onPlayAudio}
+              onPauseAudio={onPauseAudio}
+              curTime={Math.floor(player!.curTime!)}
+              duration={player!.duration!}
+              onTimeUpdate={(time: number) => player?.setClickedTime(time)}
+            />
+          )}
+        </div>
       </td>
     </tr>
   );
