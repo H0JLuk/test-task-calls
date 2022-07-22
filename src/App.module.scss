@@ -2,10 +2,10 @@
   @apply bg-gray-100 overflow-hidden flex items-start justify-between;
 
   .contentInner {
-    @apply w-full overflow-auto h-screen;
+    @apply overflow-auto h-screen grow-[1];
 
     .callsInner {
-      @apply flex flex-col justify-center items-center 2xl:mx-40 xl:mx-10 mx-2;
+      @apply flex flex-col justify-center items-center 2xl:mx-40 xl:mx-10 mx-2 pb-4 lg:w-auto w-[960px] min-w-[960px];
     }
   }
 }

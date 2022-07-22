@@ -15,7 +15,7 @@ function CallsTable({ data, loading, isError }: CallsTableProps) {
   const [playingCallId, setPlayingCallId] = useState<number | null>(null);
 
   return (
-    <div className='w-full bg-red'>
+    <div className='w-full'>
       <div className='mt-5'>
         <div className='min-w-full shadow-[0_4px_5px_#E9EDF3] rounded-lg pl-10 bg-white'>
           <table className='min-w-full leading-normal'>
